@@ -3,33 +3,26 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.1.RELEASE</version>
+		<groupId>com.lvlvstart.spring.eureka.demo</groupId>
+		<artifactId>pring-cloud-demo-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.lvlvstart.spring.eureka.demo</groupId>
-	<artifactId>pring-cloud-demo-parent</artifactId>
+	<groupId>com.lvlvstart.spring.demo.user</groupId>
+	<artifactId>spring-user</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-cloud-demo-parent</name>
-	<description>spring cloude demo</description>
-	<packaging>pom</packaging>
+	<name>spring-user</name>
+	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
 	</properties>
 
-
-	<modules>
-		<module>spring-eureka</module>
-		<module>spring-user</module>
-	</modules>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
 		<dependency>

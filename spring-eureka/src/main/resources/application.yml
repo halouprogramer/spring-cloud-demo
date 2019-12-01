@@ -8,9 +8,9 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone:  http://127.0.0.1:8761/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/
     register-with-eureka: false #是否注册到eureka上
-    fetch-registry: false #是否拉去服务
+    fetch-registry: false #是否从eureka上获取同步信息，单节可以设置为false
   server:
     eviction-interval-timer-in-ms: 10000 #清理无效节点时间
     enable-self-preservation: false #是否开启自我保护 ,Eureka 会统计15分钟之内心跳失败的比例低于85%将会触发保护机制，不剔除服务提供者，如果关闭服务注册中心将不可用的实例正确剔除

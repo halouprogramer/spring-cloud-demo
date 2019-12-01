@@ -1,10 +1,10 @@
-package com.lvlvstart.spring.eureka.demo;
+package com.lvlvstart.spring.demo.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringEurekaApplicationTests {
+class SpringUserApplicationTests {
 
 	@Test
 	void contextLoads() {
