@@ -3,6 +3,7 @@ package com.lvlvstart.spring.demo.school.entity;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * @author zishu.lv@baodanyun-inc.com
@@ -13,6 +14,7 @@ import javax.persistence.Entity;
 @Entity
 public class School {
 
+    @Id
     private String id;
 
     /**
