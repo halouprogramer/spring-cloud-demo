@@ -8,7 +8,7 @@
 		<version>2.2.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.lvlvstart.spring.eureka.demo</groupId>
+	<groupId>com.lvlvstart.spring.cloud.demo</groupId>
 	<artifactId>pring-cloud-demo-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-cloud-demo-parent</name>
@@ -25,6 +25,7 @@
 		<module>spring-eureka</module>
 		<module>spring-user</module>
 		<module>spring-school</module>
+		<module>spring-common</module>
 	</modules>
 
 	<dependencies>
