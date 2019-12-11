@@ -9,16 +9,16 @@ import lombok.Data;
  * @create 2019/12/9 16:14
  */
 @Data
-public class Result<T> {
+public class Result<E> {
 
     private Header header;
 
-    private T body;
+    private E body;
 
 
     public Result(){}
 
-    public Result(String header,String msg,T data){
+    public Result(String header,String msg,E data){
         this.header = new Header(header,msg);
         body = data;
     }

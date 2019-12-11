@@ -12,5 +12,8 @@
 
     <artifactId>spring-common</artifactId>
 
+    <dependencies>
+    </dependencies>
+
 
 </project>

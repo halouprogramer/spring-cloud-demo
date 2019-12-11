@@ -13,3 +13,8 @@ create table school(
   id varchar(32) not null primary key ,
   school_name varchar(32) not null comment '学校名称'
 )Engine=InnoDB default charset utf8 comment '学校';
+
+
+
+insert into school values('1','清华大学');
+insert into school values('2','北京大学');
