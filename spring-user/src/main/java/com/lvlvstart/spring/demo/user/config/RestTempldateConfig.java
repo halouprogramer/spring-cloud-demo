@@ -19,8 +19,8 @@ public class RestTempldateConfig {
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().clear();
-        restTemplate.getMessageConverters().add(new FastJsonHttpMessageConverter());
-//        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+//        restTemplate.getMessageConverters().add(new FastJsonHttpMessageConverter());
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
         return restTemplate;
     }
