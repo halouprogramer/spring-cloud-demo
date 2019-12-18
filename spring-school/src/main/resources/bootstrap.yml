@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: spring-school
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: SPRING-CONFIG
+      profile: dev
+  profiles:
+    active: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+#配置超时时间
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
