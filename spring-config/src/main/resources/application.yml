@@ -6,8 +6,8 @@ spring:
       server:
         git:
           uri: https://github.com/halouprogramer/spring-config-repository.git
-#          username: lzs
-#          password: halouworld123SSH
+#          username: ***
+#          password: ***
           basedir: ~/temp/gitlab
 
 
