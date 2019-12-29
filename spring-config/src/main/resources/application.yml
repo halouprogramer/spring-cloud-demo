@@ -9,6 +9,11 @@ spring:
 #          username: ***
 #          password: ***
           basedir: ~/temp/gitlab
+  rabbitmq:
+    host: 192.168.10.128
+    port: 5672
+    username: admin
+    password: admin
 
 
 eureka:
@@ -18,4 +23,10 @@ eureka:
   instance:
     prefer-ip-address: true
 server:
-  port: 8083
+  port: 3636
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
