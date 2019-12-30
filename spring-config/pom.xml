@@ -49,7 +49,7 @@
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-monito</artifactId>
+			<artifactId>spring-cloud-config-monitor</artifactId>
 		</dependency>
 	</dependencies>
 
