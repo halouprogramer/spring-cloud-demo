@@ -7,10 +7,12 @@ spring:
         enabled: true
         service-id: SPRING-CONFIG
       profile: dev
+    bus:
+      id: ${spring.application.name}:${spring.cloud.config.profile}:${random.value}
   profiles:
     active: dev
   rabbitmq:
-    host: 192.168.10.128
+    host: 192.168.114.129
     port: 5672
     username: admin
     password: admin
@@ -29,4 +31,4 @@ feign:
       default:
         connectTimeout: 5000
         readTimeout: 5000
-#        loggerLevel: basic=bus-refresh
+#        logger-level: bus
