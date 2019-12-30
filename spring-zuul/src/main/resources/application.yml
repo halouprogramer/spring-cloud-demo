@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: spring-zuul
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+server:
+  port: 8082
