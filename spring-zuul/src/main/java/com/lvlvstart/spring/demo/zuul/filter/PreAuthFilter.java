@@ -1,9 +1,16 @@
-package com.lvlvstart.spring.demo.zuul;
+package com.lvlvstart.spring.demo.zuul.filter;
 
 import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
+@Slf4j
+@Component
 public class PreAuthFilter extends ZuulFilter{
 
     //是什么类型的过滤器
@@ -29,6 +36,14 @@ public class PreAuthFilter extends ZuulFilter{
 
     @Override
     public Object run() throws ZuulException {
+
+        RequestContext requestContext = RequestContext.getCurrentContext();
+
+        String auth = requestContext.getRequest().getHeader("auth");
+        if(StringUtils.isBlank(auth) || !"halou".equals(auth)){
+            requestContext.setSendZuulResponse(false);
+            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+        }
         return null;
     }
 }

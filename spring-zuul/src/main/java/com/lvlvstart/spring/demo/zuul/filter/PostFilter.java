@@ -1,9 +1,15 @@
-package com.lvlvstart.spring.demo.zuul;
+package com.lvlvstart.spring.demo.zuul.filter;
 
+import com.netflix.ribbon.proxy.annotation.Http;
 import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
+import org.springframework.http.HttpStatus;
 import sun.net.httpserver.AuthFilter;
+
+import javax.servlet.http.HttpServletRequest;
 
 public class PostFilter extends ZuulFilter{
 
@@ -37,6 +43,8 @@ public class PostFilter extends ZuulFilter{
      */
     @Override
     public Object run() throws ZuulException {
+
         return null;
+
     }
 }
