@@ -11,11 +11,11 @@ spring:
       id: ${spring.application.name}:${spring.cloud.config.profile}:${random.value}
   profiles:
     active: dev
-  rabbitmq:
-    host: 192.168.114.129
-    port: 5672
-    username: admin
-    password: admin
+#  rabbitmq:
+#    host: 192.168.114.129
+#    port: 5672
+#    username: admin
+#    password: admin
 
 eureka:
   client:

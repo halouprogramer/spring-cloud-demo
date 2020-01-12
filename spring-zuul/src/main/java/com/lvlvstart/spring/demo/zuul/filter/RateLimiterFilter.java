@@ -8,9 +8,6 @@ import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import javax.jnlp.FileContents;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * 限流，令牌桶算法
  */

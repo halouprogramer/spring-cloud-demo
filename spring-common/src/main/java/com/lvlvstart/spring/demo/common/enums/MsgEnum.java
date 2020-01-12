@@ -1,4 +1,4 @@
-package com.lvlvstart.spring.demo.school.enums;
+package com.lvlvstart.spring.demo.common.enums;
 
 /**
  * @author zishu.lv@baodanyun-inc.com
@@ -7,14 +7,16 @@ package com.lvlvstart.spring.demo.school.enums;
  */
 public enum MsgEnum {
 
-    SUCESS("200","成功");
+    SUCESS("1","成功"),
+
+    DOWNGRADE("001001","服务降级");
 
     private String code;
 
     private String msg;
 
 
-    MsgEnum(String code,String msg){
+    MsgEnum(String code, String msg){
         this.code = code;
         this.msg = msg;
     }

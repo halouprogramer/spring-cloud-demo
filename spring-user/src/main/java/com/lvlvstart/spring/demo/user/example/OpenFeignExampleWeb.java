@@ -1,9 +1,11 @@
 package com.lvlvstart.spring.demo.user.example;
 
 import com.lvlvstart.spring.demo.common.client.SchoolClient;
+import com.lvlvstart.spring.demo.common.enums.MsgEnum;
+import com.lvlvstart.spring.demo.common.msg.BaseWeb;
 import com.lvlvstart.spring.demo.common.msg.Result;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("rest_feign")
-public class OpenFeignExampleWeb {
+public class OpenFeignExampleWeb extends BaseWeb {
 
     @Autowired
     private SchoolClient schoolClient;
@@ -25,4 +27,14 @@ public class OpenFeignExampleWeb {
         return schoolClient.findAll();
     }
 
+    @HystrixCommand(fallbackMethod = "msg")
+    @PostMapping("findAllSchoolGet")
+    public Result findAllGet(){
+        return schoolClient.findAll();
+    }
+
+
+    public Result msg(){
+        return fail(MsgEnum.DOWNGRADE.getCode(),MsgEnum.DOWNGRADE.getMsg());
+    }
 }

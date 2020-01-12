@@ -9,11 +9,11 @@ spring:
 #          username: ***
 #          password: ***
           basedir: ~/temp/gitlab
-  rabbitmq:
-    host: 192.168.114.129
-    port: 5672
-    username: admin
-    password: admin
+#  rabbitmq:
+#    host: 192.168.114.129
+#    port: 5672
+#    username: admin
+#    password: admin
 
 
 eureka:
