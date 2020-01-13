@@ -9,7 +9,8 @@ public enum MsgEnum {
 
     SUCESS("1","成功"),
 
-    DOWNGRADE("001001","服务降级");
+    DOWNGRADE("001001","服务降级"),
+    BREAKER("001002","服务熔断");
 
     private String code;
 

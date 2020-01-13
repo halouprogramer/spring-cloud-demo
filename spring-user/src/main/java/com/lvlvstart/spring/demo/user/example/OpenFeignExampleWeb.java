@@ -29,6 +29,7 @@ public class OpenFeignExampleWeb extends BaseWeb {
         return schoolClient.findAll();
     }
 
+    //降级
     @HystrixCommand(commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "4000")
     })
@@ -38,7 +39,24 @@ public class OpenFeignExampleWeb extends BaseWeb {
     }
 
 
+    /**
+     * 熔断设置
+     * @return
+     */
+    @PostMapping("findAllBreaker")
+    @HystrixCommand(fallbackMethod = "brekerMsg",commandProperties = {@HystrixProperty(name = "circuitBreaker.enabled",value = "true"),
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"), //设置再滚动时间窗口中的最小请求数,
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "10000"),//熔断开启后的时间
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")}) //设置比60%，如果再滚动时间窗口内，大于60%的时候，就会进行熔断
+    public Result findAllBreaker(){
+        return schoolClient.findAll();
+    }
+
     public Result defaultMsg(){
         return fail(MsgEnum.DOWNGRADE.getCode(),MsgEnum.DOWNGRADE.getMsg());
+    }
+
+    public Result brekerMsg(){
+        return  fail(MsgEnum.BREAKER.getCode(),MsgEnum.BREAKER.getMsg());
     }
 }
