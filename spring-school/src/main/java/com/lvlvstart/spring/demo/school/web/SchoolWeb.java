@@ -21,11 +21,11 @@ public class SchoolWeb extends BaseWeb{
 
     @PostMapping(value = "findAll")
     public Result<List<School>> findAll(){
-//        try {
-//            Thread.sleep(10000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         List<School> schools = schoolService.findAll();
         return this.success(MsgEnum.SUCESS.getCode(),MsgEnum.SUCESS.getMsg(),schools);
     }
