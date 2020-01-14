@@ -4,6 +4,8 @@ spring:
 
 server:
   port: 8080
+  servlet:
+    context-path: /
 
 eureka:
   client:
@@ -46,3 +48,17 @@ hystrix:
         requestVolumeThreshold: 10
         sleepWindowInMilliseconds: 10000
         errorThresholdPercentage: 50
+
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE
+        cloud:
+          netflix: TRACE
+management:
+  server:
+    servlet:
+      context-path: /
+
+
