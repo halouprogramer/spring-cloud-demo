@@ -19,3 +19,30 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: basic
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+      circuitBreaker:
+        enable: true
+        requestVolumeThreshold: 10
+        sleepWindowInMilliseconds: 10000
+        errorThresholdPercentage: 50
+    findAllGet:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+    findAllBreaker:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+      circuitBreaker:
+        enable: true
+        requestVolumeThreshold: 10
+        sleepWindowInMilliseconds: 10000
+        errorThresholdPercentage: 50

@@ -10,6 +10,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -30,10 +31,11 @@ public class OpenFeignExampleWeb extends BaseWeb {
     }
 
     //降级
-    @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "4000")
-    })
+//    @HystrixCommand(commandProperties = {
+//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "4000")
+//    })
     @PostMapping("findAllSchoolGet")
+    @HystrixCommand(commandKey = "findAllGet")
     public Result findAllGet(){
         return schoolClient.findAll();
     }
@@ -44,11 +46,16 @@ public class OpenFeignExampleWeb extends BaseWeb {
      * @return
      */
     @PostMapping("findAllBreaker")
-    @HystrixCommand(fallbackMethod = "brekerMsg",commandProperties = {@HystrixProperty(name = "circuitBreaker.enabled",value = "true"),
-            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"), //设置再滚动时间窗口中的最小请求数,
-            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "10000"),//熔断开启后的时间
-            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")}) //设置比60%，如果再滚动时间窗口内，大于60%的时候，就会进行熔断
-    public Result findAllBreaker(){
+//    @HystrixCommand(fallbackMethod = "brekerMsg",commandProperties = {@HystrixProperty(name = "circuitBreaker.enabled",value = "true"),
+//            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"), //设置再滚动时间窗口中的最小请求数,
+//            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "10000"),//熔断开启后的时间
+//            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")}) //设置比60%，如果再滚动时间窗口内，大于60%的时候，就会进行熔断
+    @HystrixCommand(defaultFallback = "brekerMsg")
+    public Result findAllBreaker(@RequestParam( value = "param" ) String param ){
+
+        if("2".equals(param)){
+            return success(MsgEnum.SUCESS.getCode(),MsgEnum.SUCESS.getMsg());
+        }
         return schoolClient.findAll();
     }
 
