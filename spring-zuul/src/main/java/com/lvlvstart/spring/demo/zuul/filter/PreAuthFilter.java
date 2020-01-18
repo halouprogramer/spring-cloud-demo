@@ -31,7 +31,7 @@ public class PreAuthFilter extends ZuulFilter{
     //判断是否应该被拦截
     @Override
     public boolean shouldFilter() {
-        return true;
+        return false;
     }
 
     @Override
